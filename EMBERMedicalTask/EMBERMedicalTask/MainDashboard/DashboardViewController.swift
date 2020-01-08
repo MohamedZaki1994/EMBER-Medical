@@ -14,7 +14,7 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "search"), style: .plain, target: self, action: #selector(filterTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "filter"), style: .plain, target: self, action: #selector(filterTapped))
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "News App", style: .plain, target: self, action: nil)
 
         let nib = UINib(nibName: "MainDashboardTableViewCell", bundle: nil)
@@ -51,3 +51,11 @@ extension DashboardViewController: UITableViewDataSource {
     }
 }
 
+extension DashboardViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let detailedVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailedScreenViewController") as? DetailedScreenViewController else {return}
+        detailedVC.dataModel = viewModel.dataModel[indexPath.row]
+        navigationItem.backBarButtonItem?.title = viewModel.dataModel[indexPath.row].sourceName
+        navigationController?.pushViewController(detailedVC, animated: true)
+    }
+}

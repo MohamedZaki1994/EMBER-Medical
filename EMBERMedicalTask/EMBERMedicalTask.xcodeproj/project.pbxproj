@@ -3,13 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		350B36EC23C5D7CE00881BC7 /* MainDashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350B36EA23C5D7CE00881BC7 /* MainDashboardTableViewCell.swift */; };
 		350B36ED23C5D7CE00881BC7 /* MainDashboardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 350B36EB23C5D7CE00881BC7 /* MainDashboardTableViewCell.xib */; };
 		350B36EF23C5D89400881BC7 /* DashboardDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350B36EE23C5D89400881BC7 /* DashboardDataModel.swift */; };
+		350B36F223C5EECD00881BC7 /* DetailedScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350B36F123C5EECD00881BC7 /* DetailedScreenViewController.swift */; };
+		350B36F523C5FDAA00881BC7 /* String+DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350B36F423C5FDAA00881BC7 /* String+DateFormatter.swift */; };
 		3527849723C5C80300AFB0FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527849623C5C80300AFB0FB /* AppDelegate.swift */; };
 		3527849923C5C80300AFB0FB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527849823C5C80300AFB0FB /* SceneDelegate.swift */; };
 		3527849B23C5C80300AFB0FB /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527849A23C5C80300AFB0FB /* DashboardViewController.swift */; };
@@ -27,6 +29,8 @@
 		350B36EA23C5D7CE00881BC7 /* MainDashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDashboardTableViewCell.swift; sourceTree = "<group>"; };
 		350B36EB23C5D7CE00881BC7 /* MainDashboardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainDashboardTableViewCell.xib; sourceTree = "<group>"; };
 		350B36EE23C5D89400881BC7 /* DashboardDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardDataModel.swift; sourceTree = "<group>"; };
+		350B36F123C5EECD00881BC7 /* DetailedScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedScreenViewController.swift; sourceTree = "<group>"; };
+		350B36F423C5FDAA00881BC7 /* String+DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DateFormatter.swift"; sourceTree = "<group>"; };
 		3527849323C5C80300AFB0FB /* EMBERMedicalTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EMBERMedicalTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3527849623C5C80300AFB0FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3527849823C5C80300AFB0FB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,7 +66,6 @@
 				6C45A10CEAD0592BD126A213 /* Pods-EMBERMedicalTask.debug.xcconfig */,
 				84C93C09ED8E2A7D7DA41339 /* Pods-EMBERMedicalTask.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -72,6 +75,22 @@
 				C0C846F4CCD5A6DC8BD6318B /* Pods_EMBERMedicalTask.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		350B36F023C5EE4900881BC7 /* DetailedScreen */ = {
+			isa = PBXGroup;
+			children = (
+				350B36F123C5EECD00881BC7 /* DetailedScreenViewController.swift */,
+			);
+			path = DetailedScreen;
+			sourceTree = "<group>";
+		};
+		350B36F323C5FD9000881BC7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				350B36F423C5FDAA00881BC7 /* String+DateFormatter.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		3527848A23C5C80300AFB0FB = {
@@ -95,7 +114,9 @@
 		3527849523C5C80300AFB0FB /* EMBERMedicalTask */ = {
 			isa = PBXGroup;
 			children = (
-				352784B223C5D44300AFB0FB /* Dashboard */,
+				350B36F323C5FD9000881BC7 /* Extensions */,
+				352784B223C5D44300AFB0FB /* MainDashboard */,
+				350B36F023C5EE4900881BC7 /* DetailedScreen */,
 				352784AF23C5CA2100AFB0FB /* Models */,
 				352784AA23C5C92D00AFB0FB /* Networking */,
 				352784AD23C5C96E00AFB0FB /* Constants.swift */,
@@ -125,7 +146,7 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		352784B223C5D44300AFB0FB /* Dashboard */ = {
+		352784B223C5D44300AFB0FB /* MainDashboard */ = {
 			isa = PBXGroup;
 			children = (
 				3527849A23C5C80300AFB0FB /* DashboardViewController.swift */,
@@ -134,7 +155,7 @@
 				350B36EB23C5D7CE00881BC7 /* MainDashboardTableViewCell.xib */,
 				350B36EE23C5D89400881BC7 /* DashboardDataModel.swift */,
 			);
-			path = Dashboard;
+			path = MainDashboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +278,10 @@
 				3527849B23C5C80300AFB0FB /* DashboardViewController.swift in Sources */,
 				352784B123C5CA3E00AFB0FB /* DataSourceModel.swift in Sources */,
 				3527849723C5C80300AFB0FB /* AppDelegate.swift in Sources */,
+				350B36F223C5EECD00881BC7 /* DetailedScreenViewController.swift in Sources */,
 				352784AC23C5C95500AFB0FB /* RequestHandler.swift in Sources */,
 				350B36EF23C5D89400881BC7 /* DashboardDataModel.swift in Sources */,
+				350B36F523C5FDAA00881BC7 /* String+DateFormatter.swift in Sources */,
 				3527849923C5C80300AFB0FB /* SceneDelegate.swift in Sources */,
 				350B36EC23C5D7CE00881BC7 /* MainDashboardTableViewCell.swift in Sources */,
 				352784B423C5D4F500AFB0FB /* DashboardViewModel.swift in Sources */,

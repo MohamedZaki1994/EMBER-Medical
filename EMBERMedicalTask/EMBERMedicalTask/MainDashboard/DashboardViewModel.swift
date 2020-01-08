@@ -27,8 +27,13 @@ class DashboardViewModel {
     func mapData(data: DataSourceModel) {
         data.articles?.forEach({ (articleModel) in
             let article = ArticleItem(headLine: articleModel.title,
-                                      date: articleModel.publishedAt,
-                                      imageURL: articleModel.urlToImage)
+                                      date: articleModel.publishedAt?.format(),
+                                      imageURL: articleModel.urlToImage,
+                                      description: articleModel.articleDescription,
+                                      url: articleModel.url,
+                                      author: articleModel.author,
+                                      sourceName: articleModel.source.name)
+            
             dataModel.append(article)
         })
     }

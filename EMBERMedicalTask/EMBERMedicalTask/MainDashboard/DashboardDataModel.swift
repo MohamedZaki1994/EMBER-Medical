@@ -12,4 +12,8 @@ struct ArticleItem {
     var headLine: String?
     var date: String?
     var imageURL: String?
+    var description: String?
+    var url: String?
+    var author: String?
+    var sourceName: String?
 }
