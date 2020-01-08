@@ -26,9 +26,15 @@ class DashboardViewController: UIViewController {
             }
         }
     }
-
+    var popupView: UIView?
     @objc func filterTapped() {
-
+        guard let filterVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "FilterPopupViewController") as? FilterPopupViewController else {return}
+        filterVC.delegate = self
+        filterVC.modalPresentationStyle = .fullScreen
+        addChild(filterVC)
+        view.addSubview(filterVC.view)
+        popupView = filterVC.view
+        filterVC.didMove(toParent: self)
     }
 }
 
@@ -57,5 +63,11 @@ extension DashboardViewController: UITableViewDelegate {
         detailedVC.dataModel = viewModel.dataModel[indexPath.row]
         navigationItem.backBarButtonItem?.title = viewModel.dataModel[indexPath.row].sourceName
         navigationController?.pushViewController(detailedVC, animated: true)
+    }
+}
+
+extension DashboardViewController: PopUpDelegate {
+    func closePopup() {
+        popupView?.removeFromSuperview()
     }
 }
