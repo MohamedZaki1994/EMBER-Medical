@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		350B36EC23C5D7CE00881BC7 /* MainDashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350B36EA23C5D7CE00881BC7 /* MainDashboardTableViewCell.swift */; };
+		350B36ED23C5D7CE00881BC7 /* MainDashboardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 350B36EB23C5D7CE00881BC7 /* MainDashboardTableViewCell.xib */; };
+		350B36EF23C5D89400881BC7 /* DashboardDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350B36EE23C5D89400881BC7 /* DashboardDataModel.swift */; };
 		3527849723C5C80300AFB0FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527849623C5C80300AFB0FB /* AppDelegate.swift */; };
 		3527849923C5C80300AFB0FB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527849823C5C80300AFB0FB /* SceneDelegate.swift */; };
 		3527849B23C5C80300AFB0FB /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527849A23C5C80300AFB0FB /* DashboardViewController.swift */; };
@@ -16,9 +19,14 @@
 		352784AC23C5C95500AFB0FB /* RequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352784AB23C5C95500AFB0FB /* RequestHandler.swift */; };
 		352784AE23C5C96E00AFB0FB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352784AD23C5C96E00AFB0FB /* Constants.swift */; };
 		352784B123C5CA3E00AFB0FB /* DataSourceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352784B023C5CA3D00AFB0FB /* DataSourceModel.swift */; };
+		352784B423C5D4F500AFB0FB /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352784B323C5D4F500AFB0FB /* DashboardViewModel.swift */; };
+		467FE47B2748DE8032E328F2 /* Pods_EMBERMedicalTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C846F4CCD5A6DC8BD6318B /* Pods_EMBERMedicalTask.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		350B36EA23C5D7CE00881BC7 /* MainDashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDashboardTableViewCell.swift; sourceTree = "<group>"; };
+		350B36EB23C5D7CE00881BC7 /* MainDashboardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainDashboardTableViewCell.xib; sourceTree = "<group>"; };
+		350B36EE23C5D89400881BC7 /* DashboardDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardDataModel.swift; sourceTree = "<group>"; };
 		3527849323C5C80300AFB0FB /* EMBERMedicalTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EMBERMedicalTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3527849623C5C80300AFB0FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3527849823C5C80300AFB0FB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +38,10 @@
 		352784AB23C5C95500AFB0FB /* RequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHandler.swift; sourceTree = "<group>"; };
 		352784AD23C5C96E00AFB0FB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		352784B023C5CA3D00AFB0FB /* DataSourceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceModel.swift; sourceTree = "<group>"; };
+		352784B323C5D4F500AFB0FB /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		6C45A10CEAD0592BD126A213 /* Pods-EMBERMedicalTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EMBERMedicalTask.debug.xcconfig"; path = "Target Support Files/Pods-EMBERMedicalTask/Pods-EMBERMedicalTask.debug.xcconfig"; sourceTree = "<group>"; };
+		84C93C09ED8E2A7D7DA41339 /* Pods-EMBERMedicalTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EMBERMedicalTask.release.xcconfig"; path = "Target Support Files/Pods-EMBERMedicalTask/Pods-EMBERMedicalTask.release.xcconfig"; sourceTree = "<group>"; };
+		C0C846F4CCD5A6DC8BD6318B /* Pods_EMBERMedicalTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EMBERMedicalTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,17 +49,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				467FE47B2748DE8032E328F2 /* Pods_EMBERMedicalTask.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0276269F9EB42D86261E8C1E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6C45A10CEAD0592BD126A213 /* Pods-EMBERMedicalTask.debug.xcconfig */,
+				84C93C09ED8E2A7D7DA41339 /* Pods-EMBERMedicalTask.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		328557CE24D3B84C70AFD6F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0C846F4CCD5A6DC8BD6318B /* Pods_EMBERMedicalTask.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3527848A23C5C80300AFB0FB = {
 			isa = PBXGroup;
 			children = (
 				3527849523C5C80300AFB0FB /* EMBERMedicalTask */,
 				3527849423C5C80300AFB0FB /* Products */,
+				0276269F9EB42D86261E8C1E /* Pods */,
+				328557CE24D3B84C70AFD6F5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +129,10 @@
 			isa = PBXGroup;
 			children = (
 				3527849A23C5C80300AFB0FB /* DashboardViewController.swift */,
+				352784B323C5D4F500AFB0FB /* DashboardViewModel.swift */,
+				350B36EA23C5D7CE00881BC7 /* MainDashboardTableViewCell.swift */,
+				350B36EB23C5D7CE00881BC7 /* MainDashboardTableViewCell.xib */,
+				350B36EE23C5D89400881BC7 /* DashboardDataModel.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -107,9 +144,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 352784A723C5C80400AFB0FB /* Build configuration list for PBXNativeTarget "EMBERMedicalTask" */;
 			buildPhases = (
+				CCDFAAD737A0536788EAAD30 /* [CP] Check Pods Manifest.lock */,
 				3527848F23C5C80300AFB0FB /* Sources */,
 				3527849023C5C80300AFB0FB /* Frameworks */,
 				3527849123C5C80300AFB0FB /* Resources */,
+				C71CA4274CDC68E44297DB04 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -161,10 +200,53 @@
 				352784A323C5C80400AFB0FB /* LaunchScreen.storyboard in Resources */,
 				352784A023C5C80400AFB0FB /* Assets.xcassets in Resources */,
 				3527849E23C5C80300AFB0FB /* Main.storyboard in Resources */,
+				350B36ED23C5D7CE00881BC7 /* MainDashboardTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C71CA4274CDC68E44297DB04 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EMBERMedicalTask/Pods-EMBERMedicalTask-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EMBERMedicalTask/Pods-EMBERMedicalTask-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EMBERMedicalTask/Pods-EMBERMedicalTask-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCDFAAD737A0536788EAAD30 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EMBERMedicalTask-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3527848F23C5C80300AFB0FB /* Sources */ = {
@@ -176,7 +258,10 @@
 				352784B123C5CA3E00AFB0FB /* DataSourceModel.swift in Sources */,
 				3527849723C5C80300AFB0FB /* AppDelegate.swift in Sources */,
 				352784AC23C5C95500AFB0FB /* RequestHandler.swift in Sources */,
+				350B36EF23C5D89400881BC7 /* DashboardDataModel.swift in Sources */,
 				3527849923C5C80300AFB0FB /* SceneDelegate.swift in Sources */,
+				350B36EC23C5D7CE00881BC7 /* MainDashboardTableViewCell.swift in Sources */,
+				352784B423C5D4F500AFB0FB /* DashboardViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +403,7 @@
 		};
 		352784A823C5C80400AFB0FB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C45A10CEAD0592BD126A213 /* Pods-EMBERMedicalTask.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -335,6 +421,7 @@
 		};
 		352784A923C5C80400AFB0FB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84C93C09ED8E2A7D7DA41339 /* Pods-EMBERMedicalTask.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
