@@ -20,7 +20,7 @@ class Article: Codable {
     var title, articleDescription: String?
     var url: String?
     var urlToImage: String?
-    var publishedAt: Date?
+    var publishedAt: String?
     var content: String?
 
     enum CodingKeys: String, CodingKey {
