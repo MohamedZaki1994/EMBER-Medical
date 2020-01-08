@@ -14,6 +14,9 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "search"), style: .plain, target: self, action: #selector(filterTapped))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "News App", style: .plain, target: self, action: nil)
+
         let nib = UINib(nibName: "MainDashboardTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "MainDashboardTableViewCell")
         viewModel.fetchData { [weak self] (dataModel) in
@@ -22,6 +25,10 @@ class DashboardViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }
+    }
+
+    @objc func filterTapped() {
+
     }
 }
 
