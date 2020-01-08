@@ -1,0 +1,377 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3527849723C5C80300AFB0FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527849623C5C80300AFB0FB /* AppDelegate.swift */; };
+		3527849923C5C80300AFB0FB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527849823C5C80300AFB0FB /* SceneDelegate.swift */; };
+		3527849B23C5C80300AFB0FB /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527849A23C5C80300AFB0FB /* DashboardViewController.swift */; };
+		3527849E23C5C80300AFB0FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3527849C23C5C80300AFB0FB /* Main.storyboard */; };
+		352784A023C5C80400AFB0FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3527849F23C5C80400AFB0FB /* Assets.xcassets */; };
+		352784A323C5C80400AFB0FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 352784A123C5C80400AFB0FB /* LaunchScreen.storyboard */; };
+		352784AC23C5C95500AFB0FB /* RequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352784AB23C5C95500AFB0FB /* RequestHandler.swift */; };
+		352784AE23C5C96E00AFB0FB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352784AD23C5C96E00AFB0FB /* Constants.swift */; };
+		352784B123C5CA3E00AFB0FB /* DataSourceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352784B023C5CA3D00AFB0FB /* DataSourceModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3527849323C5C80300AFB0FB /* EMBERMedicalTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EMBERMedicalTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3527849623C5C80300AFB0FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3527849823C5C80300AFB0FB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		3527849A23C5C80300AFB0FB /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		3527849D23C5C80300AFB0FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3527849F23C5C80400AFB0FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		352784A223C5C80400AFB0FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		352784A423C5C80400AFB0FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		352784AB23C5C95500AFB0FB /* RequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHandler.swift; sourceTree = "<group>"; };
+		352784AD23C5C96E00AFB0FB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		352784B023C5CA3D00AFB0FB /* DataSourceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3527849023C5C80300AFB0FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3527848A23C5C80300AFB0FB = {
+			isa = PBXGroup;
+			children = (
+				3527849523C5C80300AFB0FB /* EMBERMedicalTask */,
+				3527849423C5C80300AFB0FB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3527849423C5C80300AFB0FB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3527849323C5C80300AFB0FB /* EMBERMedicalTask.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3527849523C5C80300AFB0FB /* EMBERMedicalTask */ = {
+			isa = PBXGroup;
+			children = (
+				352784B223C5D44300AFB0FB /* Dashboard */,
+				352784AF23C5CA2100AFB0FB /* Models */,
+				352784AA23C5C92D00AFB0FB /* Networking */,
+				352784AD23C5C96E00AFB0FB /* Constants.swift */,
+				3527849623C5C80300AFB0FB /* AppDelegate.swift */,
+				3527849823C5C80300AFB0FB /* SceneDelegate.swift */,
+				3527849C23C5C80300AFB0FB /* Main.storyboard */,
+				3527849F23C5C80400AFB0FB /* Assets.xcassets */,
+				352784A123C5C80400AFB0FB /* LaunchScreen.storyboard */,
+				352784A423C5C80400AFB0FB /* Info.plist */,
+			);
+			path = EMBERMedicalTask;
+			sourceTree = "<group>";
+		};
+		352784AA23C5C92D00AFB0FB /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				352784AB23C5C95500AFB0FB /* RequestHandler.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		352784AF23C5CA2100AFB0FB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				352784B023C5CA3D00AFB0FB /* DataSourceModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		352784B223C5D44300AFB0FB /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				3527849A23C5C80300AFB0FB /* DashboardViewController.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3527849223C5C80300AFB0FB /* EMBERMedicalTask */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 352784A723C5C80400AFB0FB /* Build configuration list for PBXNativeTarget "EMBERMedicalTask" */;
+			buildPhases = (
+				3527848F23C5C80300AFB0FB /* Sources */,
+				3527849023C5C80300AFB0FB /* Frameworks */,
+				3527849123C5C80300AFB0FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EMBERMedicalTask;
+			productName = EMBERMedicalTask;
+			productReference = 3527849323C5C80300AFB0FB /* EMBERMedicalTask.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3527848B23C5C80300AFB0FB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = "Mohamed Mahmoud Zaki";
+				TargetAttributes = {
+					3527849223C5C80300AFB0FB = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 3527848E23C5C80300AFB0FB /* Build configuration list for PBXProject "EMBERMedicalTask" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3527848A23C5C80300AFB0FB;
+			productRefGroup = 3527849423C5C80300AFB0FB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3527849223C5C80300AFB0FB /* EMBERMedicalTask */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3527849123C5C80300AFB0FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				352784A323C5C80400AFB0FB /* LaunchScreen.storyboard in Resources */,
+				352784A023C5C80400AFB0FB /* Assets.xcassets in Resources */,
+				3527849E23C5C80300AFB0FB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3527848F23C5C80300AFB0FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				352784AE23C5C96E00AFB0FB /* Constants.swift in Sources */,
+				3527849B23C5C80300AFB0FB /* DashboardViewController.swift in Sources */,
+				352784B123C5CA3E00AFB0FB /* DataSourceModel.swift in Sources */,
+				3527849723C5C80300AFB0FB /* AppDelegate.swift in Sources */,
+				352784AC23C5C95500AFB0FB /* RequestHandler.swift in Sources */,
+				3527849923C5C80300AFB0FB /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3527849C23C5C80300AFB0FB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3527849D23C5C80300AFB0FB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		352784A123C5C80400AFB0FB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				352784A223C5C80400AFB0FB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		352784A523C5C80400AFB0FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		352784A623C5C80400AFB0FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		352784A823C5C80400AFB0FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = EMBERMedicalTask/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Zaki.EMBERMedicalTask;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		352784A923C5C80400AFB0FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = EMBERMedicalTask/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Zaki.EMBERMedicalTask;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3527848E23C5C80300AFB0FB /* Build configuration list for PBXProject "EMBERMedicalTask" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				352784A523C5C80400AFB0FB /* Debug */,
+				352784A623C5C80400AFB0FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		352784A723C5C80400AFB0FB /* Build configuration list for PBXNativeTarget "EMBERMedicalTask" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				352784A823C5C80400AFB0FB /* Debug */,
+				352784A923C5C80400AFB0FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3527848B23C5C80300AFB0FB /* Project object */;
+}
