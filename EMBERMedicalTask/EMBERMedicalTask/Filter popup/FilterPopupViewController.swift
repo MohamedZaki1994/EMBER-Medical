@@ -22,7 +22,12 @@ class FilterPopupViewController: UIViewController {
     var delegate: PopUpDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.fetchSources { (sourcesName) in
+        viewModel.fetchSources { [weak self] in
+            guard let self = self else {return}
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else {return}
+                self.selectSourceTableView.reloadData()
+            }
         }
         countryButton.setTitle("Select Country", for: .normal)
         sourceButton.titleLabel?.text = "Select News Source"
@@ -70,7 +75,7 @@ extension FilterPopupViewController: UITableViewDataSource {
         case 0:
                 return Countries.supportedCountries.count
         default:
-            return 5
+            return viewModel.sourcesName.count
         }
     }
 
@@ -80,7 +85,7 @@ extension FilterPopupViewController: UITableViewDataSource {
         case 0:
             cell.textLabel?.text = Countries.supportedCountries[indexPath.row]
         default:
-            cell.textLabel?.text = "Done"
+            cell.textLabel?.text = viewModel.sourcesName[indexPath.row]
         }
         return cell
     }

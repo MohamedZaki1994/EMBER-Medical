@@ -11,7 +11,7 @@ import Foundation
 class FilterPopupViewModel {
 
     var sourcesName = [String]()
-    func fetchSources(completion: (([String]?) -> Void)?) {
+    func fetchSources(completion: (() -> Void)?) {
         RequestHandler.requestSources { [weak self] (sourceModel, error) in
             if error != nil {
                 return
@@ -21,7 +21,7 @@ class FilterPopupViewModel {
                     self?.sourcesName.append(name)
                 }
             })
-            completion?(self?.sourcesName)
+            completion?()
 
         }
     }
