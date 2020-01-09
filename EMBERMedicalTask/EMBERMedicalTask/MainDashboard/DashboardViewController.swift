@@ -11,6 +11,7 @@ import UIKit
 class DashboardViewController: UIViewController {
 
     var viewModel = DashboardViewModel()
+    var isPopupPresented = false
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,13 +29,16 @@ class DashboardViewController: UIViewController {
     }
     var popupView: UIView?
     @objc func filterTapped() {
-        guard let filterVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "FilterPopupViewController") as? FilterPopupViewController else {return}
-        filterVC.delegate = self
-        filterVC.modalPresentationStyle = .fullScreen
-        addChild(filterVC)
-        view.addSubview(filterVC.view)
-        popupView = filterVC.view
-        filterVC.didMove(toParent: self)
+        if !isPopupPresented {
+            guard let filterVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "FilterPopupViewController") as? FilterPopupViewController else {return}
+            filterVC.delegate = self
+            filterVC.modalPresentationStyle = .fullScreen
+            addChild(filterVC)
+            view.addSubview(filterVC.view)
+            popupView = filterVC.view
+            filterVC.didMove(toParent: self)
+            isPopupPresented = true
+        }
     }
 }
 
@@ -69,5 +73,6 @@ extension DashboardViewController: UITableViewDelegate {
 extension DashboardViewController: PopUpDelegate {
     func closePopup() {
         popupView?.removeFromSuperview()
+        isPopupPresented = false
     }
 }
