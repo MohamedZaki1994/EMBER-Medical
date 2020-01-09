@@ -12,12 +12,15 @@ class FilterPopupViewController: UIViewController {
 
     @IBOutlet weak var selectCountryTableView: UITableView!
     @IBOutlet weak var selectSourceTableView: UITableView!
+    @IBOutlet weak var sourceImageView: UIImageView!
+    @IBOutlet weak var countryImageView: UIImageView!
     @IBOutlet weak var countryButton: UIButton!
     @IBOutlet weak var sourceButton: UIButton!
     var viewModel = FilterPopupViewModel()
-
     var countryButtonClicked = false
     var sourceButtonClicked = false
+    var selectedCountry: String?
+    var selectedSource: (id: String, name: String)?
 
     var delegate: PopUpDelegate?
     override func viewDidLoad() {
@@ -31,7 +34,6 @@ class FilterPopupViewController: UIViewController {
         }
         countryButton.setTitle("Select Country", for: .normal)
         sourceButton.titleLabel?.text = "Select News Source"
-
     }
 
     @IBAction func closeButton(_ sender: Any) {
@@ -44,7 +46,11 @@ class FilterPopupViewController: UIViewController {
             return
         }
         showHideSourcesTableView(show: true)
+        sourceImageView.image = UIImage(named: "circleDot")
+        countryImageView.image = UIImage(named: "circle")
         showHideCountryTableView(show: false)
+        countryButton.setTitle("Select Country", for: .normal)
+        selectedCountry = nil
     }
 
     @IBAction func selectCountryButton(_ sender: Any) {
@@ -53,8 +59,22 @@ class FilterPopupViewController: UIViewController {
             return
         }
         showHideCountryTableView(show: true)
+        countryImageView.image = UIImage(named: "circleDot")
+        sourceImageView.image = UIImage(named: "circle")
         showHideSourcesTableView(show: false)
+        sourceButton.setTitle("Select News Source", for: .normal)
+        selectedSource = nil
     }
+
+    @IBAction func cancelButton(_ sender: Any) {
+        delegate?.closePopup()
+    }
+
+    @IBAction func filterButton(_ sender: Any) {
+        delegate?.filter(country: selectedCountry, source: selectedSource?.id)
+    }
+
+    
 
     fileprivate func showHideCountryTableView(show: Bool) {
         countryButtonClicked = show
@@ -85,7 +105,7 @@ extension FilterPopupViewController: UITableViewDataSource {
         case 0:
             cell.textLabel?.text = Countries.supportedCountries[indexPath.row]
         default:
-            cell.textLabel?.text = viewModel.sourcesName[indexPath.row]
+            cell.textLabel?.text = viewModel.sourcesName[indexPath.row].name
         }
         return cell
     }
@@ -97,9 +117,11 @@ extension FilterPopupViewController: UITableViewDelegate {
         case 0:
             countryButton.setTitle(Countries.supportedCountries[indexPath.row], for: .normal)
             showHideCountryTableView(show: false)
+            selectedCountry = Countries.supportedCountries[indexPath.row]
         default:
-            sourceButton.titleLabel?.text = ""
+            sourceButton.setTitle(viewModel.sourcesName[indexPath.row].name, for: .normal)
             showHideSourcesTableView(show: false)
+            selectedSource = viewModel.sourcesName[indexPath.row]
         }
     }
 }

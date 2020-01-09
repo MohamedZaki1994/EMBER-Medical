@@ -10,9 +10,9 @@ import Foundation
 
 class RequestHandler {
 
-    class func requestData(path: String = "" , completion:((DataSourceModel?, Error?) -> Void)?) {
-        var urlComponent = URLComponents(string: Constants.baseURL + Constants.endPoint + path)
-        urlComponent?.queryItems = query(country: "us")
+    class func requestData(country: String = "", source: String = "" , completion:((DataSourceModel?, Error?) -> Void)?) {
+        var urlComponent = URLComponents(string: Constants.baseURL + Constants.endPoint)
+        urlComponent?.queryItems = query(country: country, source: source)
         guard let url = urlComponent?.url else {return}
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if error != nil {
@@ -54,13 +54,16 @@ class RequestHandler {
         }.resume()
     }
 
-    private class func query(country: String = "") -> [URLQueryItem] {
+    private class func query(country: String = "", source: String = "") -> [URLQueryItem] {
         var queries = [URLQueryItem] ()
         let queryAPIKey = URLQueryItem(name: "apikey", value: Constants.apiKey)
         queries.append(queryAPIKey)
         if !country.isEmpty {
             queries.append(URLQueryItem(name: "country", value: country))
         }
+        if !source.isEmpty {
+             queries.append(URLQueryItem(name: "sources", value: source))
+         }
         return queries
     }
 }

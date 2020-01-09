@@ -10,4 +10,5 @@ import Foundation
 
 protocol PopUpDelegate {
     func closePopup()
+    func filter(country: String?, source: String?)
 }

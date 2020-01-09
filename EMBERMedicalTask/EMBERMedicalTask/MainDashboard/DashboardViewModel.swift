@@ -11,8 +11,9 @@ import Foundation
 class DashboardViewModel {
 
     var dataModel = [ArticleItem]()
-    func fetchData(completion: (([ArticleItem]?) -> Void)?) {
-        RequestHandler.requestData{ [weak self] (dataModel, error) in
+    func fetchData(country: String = "", source: String = "", completion: (([ArticleItem]?) -> Void)?) {
+        dataModel = [ArticleItem]()
+        RequestHandler.requestData(country: country, source: source){ [weak self] (dataModel, error) in
             guard let self = self else {return}
             if error != nil {
                 print(error as Any)

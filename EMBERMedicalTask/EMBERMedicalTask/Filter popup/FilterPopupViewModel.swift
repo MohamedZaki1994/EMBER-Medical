@@ -10,15 +10,17 @@ import Foundation
 
 class FilterPopupViewModel {
 
-    var sourcesName = [String]()
+    var sourcesName = [(id: String, name: String)]()
     func fetchSources(completion: (() -> Void)?) {
         RequestHandler.requestSources { [weak self] (sourceModel, error) in
             if error != nil {
                 return
             }
             sourceModel?.sources?.forEach({ [weak self] (source) in
-                if let name = source.name {
-                    self?.sourcesName.append(name)
+                if let name = source.name,
+                    let id = source.id{
+                    let tuple = (id, name)
+                    self?.sourcesName.append(tuple)
                 }
             })
             completion?()

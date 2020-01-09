@@ -20,7 +20,7 @@ class DashboardViewController: UIViewController {
 
         let nib = UINib(nibName: "MainDashboardTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "MainDashboardTableViewCell")
-        viewModel.fetchData { [weak self] (dataModel) in
+        viewModel.fetchData(country: "us") { [weak self] (dataModel) in
             guard let self = self else {return}
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -71,6 +71,17 @@ extension DashboardViewController: UITableViewDelegate {
 }
 
 extension DashboardViewController: PopUpDelegate {
+    func filter(country: String?, source: String?) {
+        popupView?.removeFromSuperview()
+        isPopupPresented = false
+        viewModel.fetchData(country: country ?? "", source: source ?? "") { [weak self] (dataModel) in
+            guard let self = self else {return}
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+
     func closePopup() {
         popupView?.removeFromSuperview()
         isPopupPresented = false
