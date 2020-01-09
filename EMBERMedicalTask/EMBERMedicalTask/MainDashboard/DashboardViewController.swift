@@ -12,17 +12,22 @@ class DashboardViewController: UIViewController {
 
     var viewModel = DashboardViewModel()
     var isPopupPresented = false
+    var notFoundLabel = UILabel()
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "filter"), style: .plain, target: self, action: #selector(filterTapped))
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "News App", style: .plain, target: self, action: nil)
-
+        notFoundLabel = UILabel(frame: CGRect(x: self.view.frame.minX, y: self.view.frame.midY, width: view.frame.width, height: 50))
+        notFoundLabel.textAlignment = .center
+        view.addSubview(notFoundLabel)
+        notFoundLabel.text = "Loading..."
         let nib = UINib(nibName: "MainDashboardTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "MainDashboardTableViewCell")
         viewModel.fetchData(country: "us") { [weak self] (dataModel) in
             guard let self = self else {return}
             DispatchQueue.main.async {
+                self.notFoundLabel.isHidden = true
                 self.tableView.reloadData()
             }
         }
@@ -76,7 +81,14 @@ extension DashboardViewController: PopUpDelegate {
         isPopupPresented = false
         viewModel.fetchData(country: country ?? "", source: source ?? "") { [weak self] (dataModel) in
             guard let self = self else {return}
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else {return}
+                if dataModel?.isEmpty ?? true {
+                    self.notFoundLabel.isHidden = false
+                    self.notFoundLabel.text = "results not found!"
+                } else {
+                    self.notFoundLabel.isHidden = true
+                }
                 self.tableView.reloadData()
             }
         }
