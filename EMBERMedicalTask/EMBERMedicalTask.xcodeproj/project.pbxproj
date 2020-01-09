@@ -24,6 +24,8 @@
 		352784AE23C5C96E00AFB0FB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352784AD23C5C96E00AFB0FB /* Constants.swift */; };
 		352784B123C5CA3E00AFB0FB /* DataSourceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352784B023C5CA3D00AFB0FB /* DataSourceModel.swift */; };
 		352784B423C5D4F500AFB0FB /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352784B323C5D4F500AFB0FB /* DashboardViewModel.swift */; };
+		3527B23B23C7252300C7BA3B /* FilterPopupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527B23A23C7252300C7BA3B /* FilterPopupViewModel.swift */; };
+		3527B23D23C728E500C7BA3B /* SourcesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3527B23C23C728E500C7BA3B /* SourcesModel.swift */; };
 		467FE47B2748DE8032E328F2 /* Pods_EMBERMedicalTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C846F4CCD5A6DC8BD6318B /* Pods_EMBERMedicalTask.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,8 @@
 		352784AD23C5C96E00AFB0FB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		352784B023C5CA3D00AFB0FB /* DataSourceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceModel.swift; sourceTree = "<group>"; };
 		352784B323C5D4F500AFB0FB /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		3527B23A23C7252300C7BA3B /* FilterPopupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPopupViewModel.swift; sourceTree = "<group>"; };
+		3527B23C23C728E500C7BA3B /* SourcesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesModel.swift; sourceTree = "<group>"; };
 		6C45A10CEAD0592BD126A213 /* Pods-EMBERMedicalTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EMBERMedicalTask.debug.xcconfig"; path = "Target Support Files/Pods-EMBERMedicalTask/Pods-EMBERMedicalTask.debug.xcconfig"; sourceTree = "<group>"; };
 		84C93C09ED8E2A7D7DA41339 /* Pods-EMBERMedicalTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EMBERMedicalTask.release.xcconfig"; path = "Target Support Files/Pods-EMBERMedicalTask/Pods-EMBERMedicalTask.release.xcconfig"; sourceTree = "<group>"; };
 		C0C846F4CCD5A6DC8BD6318B /* Pods_EMBERMedicalTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EMBERMedicalTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				350B36F723C60E7800881BC7 /* FilterPopupViewController.swift */,
+				3527B23A23C7252300C7BA3B /* FilterPopupViewModel.swift */,
 			);
 			path = "Filter popup";
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				352784B023C5CA3D00AFB0FB /* DataSourceModel.swift */,
+				3527B23C23C728E500C7BA3B /* SourcesModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -303,12 +309,14 @@
 				3527849723C5C80300AFB0FB /* AppDelegate.swift in Sources */,
 				350B36F223C5EECD00881BC7 /* DetailedScreenViewController.swift in Sources */,
 				352784AC23C5C95500AFB0FB /* RequestHandler.swift in Sources */,
+				3527B23B23C7252300C7BA3B /* FilterPopupViewModel.swift in Sources */,
 				350B36EF23C5D89400881BC7 /* DashboardDataModel.swift in Sources */,
 				350B36F523C5FDAA00881BC7 /* String+DateFormatter.swift in Sources */,
 				350B36FB23C618A400881BC7 /* PopUpDelegate.swift in Sources */,
 				3527849923C5C80300AFB0FB /* SceneDelegate.swift in Sources */,
 				350B36EC23C5D7CE00881BC7 /* MainDashboardTableViewCell.swift in Sources */,
 				352784B423C5D4F500AFB0FB /* DashboardViewModel.swift in Sources */,
+				3527B23D23C728E500C7BA3B /* SourcesModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,14 +11,19 @@ import UIKit
 class FilterPopupViewController: UIViewController {
 
     @IBOutlet weak var selectCountryTableView: UITableView!
-
+    @IBOutlet weak var selectSourceTableView: UITableView!
     @IBOutlet weak var countryButton: UIButton!
     @IBOutlet weak var sourceButton: UIButton!
+    var viewModel = FilterPopupViewModel()
 
     var countryButtonClicked = false
+    var sourceButtonClicked = false
+
     var delegate: PopUpDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.fetchSources { (sourcesName) in
+        }
         countryButton.setTitle("Select Country", for: .normal)
         sourceButton.titleLabel?.text = "Select News Source"
 
@@ -29,16 +34,33 @@ class FilterPopupViewController: UIViewController {
     }
 
     @IBAction func sourceButton(_ sender: Any) {
-    }
-
-    fileprivate func showHideCountryTableView() {
-        countryButtonClicked = !countryButtonClicked
-        selectCountryTableView.alpha = countryButtonClicked ? 1 : 0
-        selectCountryTableView.isHidden = !countryButtonClicked
+        if sourceButtonClicked {
+            showHideSourcesTableView(show: false)
+            return
+        }
+        showHideSourcesTableView(show: true)
+        showHideCountryTableView(show: false)
     }
 
     @IBAction func selectCountryButton(_ sender: Any) {
-        showHideCountryTableView()
+        if countryButtonClicked {
+            showHideCountryTableView(show: false)
+            return
+        }
+        showHideCountryTableView(show: true)
+        showHideSourcesTableView(show: false)
+    }
+
+    fileprivate func showHideCountryTableView(show: Bool) {
+        countryButtonClicked = show
+        selectCountryTableView.alpha = show ? 1 : 0
+        selectCountryTableView.isHidden = !show
+    }
+
+    fileprivate func showHideSourcesTableView(show: Bool) {
+        sourceButtonClicked = show
+        selectSourceTableView.alpha = show ? 1 : 0
+        selectSourceTableView.isHidden = !show
     }
 }
 
@@ -62,7 +84,6 @@ extension FilterPopupViewController: UITableViewDataSource {
         }
         return cell
     }
-
 }
 
 extension FilterPopupViewController: UITableViewDelegate {
@@ -70,9 +91,10 @@ extension FilterPopupViewController: UITableViewDelegate {
         switch tableView.tag {
         case 0:
             countryButton.setTitle(Countries.supportedCountries[indexPath.row], for: .normal)
-            showHideCountryTableView()
+            showHideCountryTableView(show: false)
         default:
             sourceButton.titleLabel?.text = ""
+            showHideSourcesTableView(show: false)
         }
     }
 }

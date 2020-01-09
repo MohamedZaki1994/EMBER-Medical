@@ -12,7 +12,7 @@ class DashboardViewModel {
 
     var dataModel = [ArticleItem]()
     func fetchData(completion: (([ArticleItem]?) -> Void)?) {
-        RequestHandler.request { [weak self] (dataModel, error) in
+        RequestHandler.requestData{ [weak self] (dataModel, error) in
             guard let self = self else {return}
             if error != nil {
                 print(error as Any)

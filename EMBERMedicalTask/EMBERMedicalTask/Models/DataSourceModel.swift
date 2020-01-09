@@ -29,8 +29,3 @@ class Article: Codable {
         case url, urlToImage, publishedAt, content
     }
 }
-
-class Source: Codable {
-    var id: String?
-    var name: String?
-}

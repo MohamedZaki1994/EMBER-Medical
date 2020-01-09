@@ -10,7 +10,7 @@ import Foundation
 
 class RequestHandler {
 
-    class func request(path: String = "" , completion:((DataSourceModel?, Error?) -> Void)?) {
+    class func requestData(path: String = "" , completion:((DataSourceModel?, Error?) -> Void)?) {
         var urlComponent = URLComponents(string: Constants.baseURL + Constants.endPoint + path)
         urlComponent?.queryItems = query(country: "us")
         guard let url = urlComponent?.url else {return}
@@ -32,9 +32,35 @@ class RequestHandler {
         }.resume()
     }
 
-    private class func query(country: String) -> [URLQueryItem] {
-        let query1 = URLQueryItem(name: "country", value: country)
-        let query2 = URLQueryItem(name: "apikey", value: Constants.apiKey)
-        return [query1, query2]
+    class func requestSources(completion:((SourcesModel?, Error?) -> Void)?) {
+        var urlComponent = URLComponents(string: Constants.baseURL + Constants.sourcesEndPoint)
+        urlComponent?.queryItems = query()
+        guard let url = urlComponent?.url else {return}
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if error != nil {
+                completion?(nil, error)
+                return
+            }
+            var user: SourcesModel?
+                if let data = data {
+                    do {
+                        user = try JSONDecoder().decode(SourcesModel.self, from: data)
+                        completion?(user,nil)
+                    }
+                    catch {
+                        print("error")
+                    }
+                }
+        }.resume()
+    }
+
+    private class func query(country: String = "") -> [URLQueryItem] {
+        var queries = [URLQueryItem] ()
+        let queryAPIKey = URLQueryItem(name: "apikey", value: Constants.apiKey)
+        queries.append(queryAPIKey)
+        if !country.isEmpty {
+            queries.append(URLQueryItem(name: "country", value: country))
+        }
+        return queries
     }
 }
