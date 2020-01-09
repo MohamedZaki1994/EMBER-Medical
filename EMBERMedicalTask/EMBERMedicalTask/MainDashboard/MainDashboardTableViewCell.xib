@@ -49,6 +49,14 @@
                     <constraint firstAttribute="bottomMargin" secondItem="7ZT-lF-jHw" secondAttribute="bottom" constant="10" id="tBc-vu-ifS"/>
                     <constraint firstAttribute="trailingMargin" secondItem="7ZT-lF-jHw" secondAttribute="trailing" constant="10" id="x7L-QZ-XCE"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
+                        <integer key="value" value="6"/>
+                    </userDefinedRuntimeAttribute>
+                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                        <integer key="value" value="1"/>
+                    </userDefinedRuntimeAttribute>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
