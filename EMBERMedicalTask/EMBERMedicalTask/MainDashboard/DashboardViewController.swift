@@ -10,11 +10,11 @@ import UIKit
 
 class DashboardViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
     var viewModel = DashboardViewModel()
     var isPopupPresented = false
     var statusLabel = UILabel()
     var popupView: UIView?
-    @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()

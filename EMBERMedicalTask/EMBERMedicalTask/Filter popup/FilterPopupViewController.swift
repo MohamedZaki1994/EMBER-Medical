@@ -21,8 +21,8 @@ class FilterPopupViewController: UIViewController {
     var sourceButtonClicked = false
     var selectedCountry: String?
     var selectedSource: (id: String, name: String)?
-
     var delegate: PopUpDelegate?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.fetchSources { [weak self] in
@@ -32,8 +32,6 @@ class FilterPopupViewController: UIViewController {
                 self.selectSourceTableView.reloadData()
             }
         }
-        countryButton.setTitle("Select Country", for: .normal)
-        sourceButton.titleLabel?.text = "Select News Source"
     }
 
     @IBAction func closeButton(_ sender: Any) {
@@ -74,8 +72,6 @@ class FilterPopupViewController: UIViewController {
         delegate?.filter(country: selectedCountry, source: selectedSource?.id)
     }
 
-    
-
     fileprivate func showHideCountryTableView(show: Bool) {
         countryButtonClicked = show
         selectCountryTableView.alpha = show ? 1 : 0
@@ -93,7 +89,7 @@ extension FilterPopupViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView.tag {
         case 0:
-                return Countries.supportedCountries.count
+            return Countries.supportedCountries.count
         default:
             return viewModel.sourcesName.count
         }

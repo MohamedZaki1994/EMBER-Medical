@@ -18,9 +18,9 @@ class MainDashboardTableViewCell: UITableViewCell {
     func configure(url: URL?) {
         newsImage.kf.setImage(with: url)
     }
+
     override func layoutSubviews() {
         super.layoutSubviews()
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20))
     }
-    
 }
