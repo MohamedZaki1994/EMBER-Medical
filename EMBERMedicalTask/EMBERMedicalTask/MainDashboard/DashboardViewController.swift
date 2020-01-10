@@ -12,37 +12,59 @@ class DashboardViewController: UIViewController {
 
     var viewModel = DashboardViewModel()
     var isPopupPresented = false
-    var notFoundLabel = UILabel()
+    var statusLabel = UILabel()
+    var popupView: UIView?
     @IBOutlet weak var tableView: UITableView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "filter"), style: .plain, target: self, action: #selector(filterTapped))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "News App", style: .plain, target: self, action: nil)
-        notFoundLabel = UILabel(frame: CGRect(x: self.view.frame.minX, y: self.view.frame.midY, width: view.frame.width, height: 50))
-        notFoundLabel.textAlignment = .center
-        view.addSubview(notFoundLabel)
-        notFoundLabel.text = "Loading..."
-        let nib = UINib(nibName: "MainDashboardTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "MainDashboardTableViewCell")
-        viewModel.fetchData(country: "us") { [weak self] (dataModel) in
-            guard let self = self else {return}
-            DispatchQueue.main.async {
-                self.notFoundLabel.isHidden = true
-                self.tableView.reloadData()
-            }
-        }
+        setupNavigationItems()
+        setupStatusLabel()
+        registerCell()
+        fetchData(country: "us", source: nil)
     }
-    var popupView: UIView?
+
     @objc func filterTapped() {
         if !isPopupPresented {
-            guard let filterVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "FilterPopupViewController") as? FilterPopupViewController else {return}
+            guard let filterVC = Factory.makeFilterVC() else {return}
             filterVC.delegate = self
             filterVC.modalPresentationStyle = .fullScreen
-            addChild(filterVC)
-            view.addSubview(filterVC.view)
             popupView = filterVC.view
-            filterVC.didMove(toParent: self)
+            addSubViewController(viewController: filterVC)
             isPopupPresented = true
+        }
+    }
+
+    func setupNavigationItems() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "filter"), style: .plain, target: self, action: #selector(filterTapped))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "News App", style: .plain, target: self, action: nil)
+    }
+
+    func setupStatusLabel() {
+        statusLabel = UILabel(frame: CGRect(x: self.view.frame.minX, y: self.view.frame.midY, width: view.frame.width, height: 50))
+        statusLabel.textAlignment = .center
+        view.addSubview(statusLabel)
+        statusLabel.text = "Loading..."
+    }
+
+    func registerCell() {
+        let nib = UINib(nibName: "MainDashboardTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "MainDashboardTableViewCell")
+    }
+
+    func fetchData(country: String?, source: String?) {
+        viewModel.fetchData(country: country ?? "", source: source ?? "") { [weak self] (dataModel) in
+            guard let self = self else {return}
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else {return}
+                if dataModel?.isEmpty ?? true {
+                    self.statusLabel.isHidden = false
+                    self.statusLabel.text = "results not found!"
+                } else {
+                    self.statusLabel.isHidden = true
+                }
+                self.tableView.reloadData()
+            }
         }
     }
 }
@@ -68,7 +90,7 @@ extension DashboardViewController: UITableViewDataSource {
 
 extension DashboardViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let detailedVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailedScreenViewController") as? DetailedScreenViewController else {return}
+        guard let detailedVC = Factory.makeDetailedVC() else {return}
         detailedVC.dataModel = viewModel.dataModel[indexPath.row]
         navigationItem.backBarButtonItem?.title = viewModel.dataModel[indexPath.row].sourceName
         navigationController?.pushViewController(detailedVC, animated: true)
@@ -77,21 +99,8 @@ extension DashboardViewController: UITableViewDelegate {
 
 extension DashboardViewController: PopUpDelegate {
     func filter(country: String?, source: String?) {
-        popupView?.removeFromSuperview()
-        isPopupPresented = false
-        viewModel.fetchData(country: country ?? "", source: source ?? "") { [weak self] (dataModel) in
-            guard let self = self else {return}
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else {return}
-                if dataModel?.isEmpty ?? true {
-                    self.notFoundLabel.isHidden = false
-                    self.notFoundLabel.text = "results not found!"
-                } else {
-                    self.notFoundLabel.isHidden = true
-                }
-                self.tableView.reloadData()
-            }
-        }
+        closePopup()
+        fetchData(country: country, source: source)
     }
 
     func closePopup() {
